@@ -31,6 +31,11 @@ useEffect(() => {
     function addNewEntry() {
         console.log(newRestaurant);
         dispatch({ type: 'ADD_RESTAURANT', payload: newRestaurant })
+
+        // After dispatching - clear state of inputs
+        setRestaurant('');
+        setCuisine('');
+        setFoodURL('');
     }
 
     function letsRandomize() {

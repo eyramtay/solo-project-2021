@@ -14,5 +14,5 @@ CREATE TABLE "restaurants" (
     "restaurant_name" VARCHAR (50) NOT NULL,
     "cuisine" VARCHAR (50) NOT NULL,
     "restaurant_url" VARCHAR (120) NOT NULL,
-    "users_id" INT REFERENCES "users" NOT NULL
+    "users_id" INT REFERENCES "user" NOT NULL
 );
