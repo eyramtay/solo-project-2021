@@ -1,8 +1,11 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 function AddRestaurant() {
+
+    const user = useSelector((store) => store.user);
 
 // States for input
 const [restaurant, setRestaurant] = useState('');
@@ -30,6 +33,11 @@ useEffect(() => {
         dispatch({ type: 'ADD_RESTAURANT', payload: newRestaurant })
     }
 
+    function letsRandomize() {
+        history.push('/randomize')
+        console.log('Going to the randomizer page...');
+    }
+
     const newPlace = (event) => {
         setRestaurant(event.target.value);
     }
@@ -49,7 +57,8 @@ useEffect(() => {
             <input onChange={newCuisine} type="text" placeholder="Enter Restaurant's Cuisine" /><br />
             <input onChange={newURL} type="text" placeholder="Enter Restaurant's Website" /><br /><br />
 
-            <button onClick={addNewEntry}>Add</button>
+            <button onClick={addNewEntry}>Add</button> <br /><br />
+            <button onClick={letsRandomize}>Let's Randomize!</button>
         </>
     )
 

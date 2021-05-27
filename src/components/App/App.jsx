@@ -20,6 +20,8 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
+import AddRestaurant from '../AddRestaurant/AddRestaurant';
+
 import './App.css';
 
 function App() {
@@ -100,6 +102,14 @@ function App() {
             authRedirect="/user"
           >
             <LandingPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+
+          exact path="/addRestaurant"
+          // authRedirect="/user"
+          >
+            <AddRestaurant />
           </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
