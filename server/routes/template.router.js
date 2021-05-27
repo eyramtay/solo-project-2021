@@ -14,6 +14,13 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
   // POST route code here
+  console.log(req.body);
+
+  // Returning "id" will give us back the id of the newly created entry
+  const addRestaurantQuery = `
+  INSERT INTO "restaurants" ("restaurant_name", "cuisine", "restaurant_url")
+  VALUES ($1, $2, $3)
+  RETURNING "id";`
 });
 
 module.exports = router;
