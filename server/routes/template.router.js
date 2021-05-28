@@ -7,6 +7,17 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
   // GET route code here
+  const queryText = 'SELECT restaurant_name FROM "restaurants";';
+
+  pool.query(queryText)
+    .then(result => {
+      res.send(result.rows);
+    })
+    .catch(error => {
+      console.log('error getting restaurants', error);
+      res.sendStatus(500);
+    });
+  
 });
 
 /**
@@ -21,7 +32,6 @@ router.post('/', (req, res) => {
   INSERT INTO "restaurants" ("restaurant_name", "cuisine", "restaurant_url")
   VALUES ($1, $2, $3)
   ;`
-
 
   pool.query(addRestaurantQuery, [req.body.restaurant_name, req.body.cuisine, req.body.restaurant_url])
     .then(result => {

@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function* getRestaurants() {
     try {
-        const response = yield axios.get('/addRestaurant');
+        const response = yield axios.get('/api/addRestaurant');
 
         yield put({ type: 'SET_RESTAURANT_LIST', payload: response.data })
     

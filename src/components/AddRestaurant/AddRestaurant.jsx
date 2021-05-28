@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import RestaurantList from '../RestaurantList/RestaurantList';
 
 function AddRestaurant() {
 
@@ -64,7 +65,8 @@ useEffect(() => {
             <input onChange={newURL} type="text" placeholder="Enter Restaurant's Website" /><br /><br />
 
             <button onClick={addNewEntry}>Add</button> <br /><br />
-            <button onClick={letsRandomize}>Let's Randomize!</button>
+            <button onClick={letsRandomize}>Let's Randomize!</button> <br /><br />
+            <RestaurantList />
         </>
     )
 
