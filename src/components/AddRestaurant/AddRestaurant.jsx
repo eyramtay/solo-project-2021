@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import RestaurantList from '../RestaurantList/RestaurantList';
 
+import './AddRestaurant.css';
+
 function AddRestaurant() {
 
     const user = useSelector((store) => store.user);
@@ -59,14 +61,23 @@ useEffect(() => {
 
     return (
         <>
+        <div className="inputTable">
             <h2>Welcome, {user.username}!</h2><br />
-            <input onChange={newPlace} type="text" placeholder="Enter Restaurant" /><br />
-            <input onChange={newCuisine} type="text" placeholder="Enter Restaurant's Cuisine" /><br />
-            <input onChange={newURL} type="text" placeholder="Enter Restaurant's Website" /><br /><br />
+            <p>What are you craving? <br /><br />Down below, enter in as many restaurants as you wish & hit
+                 the <i>Let's Randomize</i> button once your list is done!</p><br />
+            <h4>Restaurant Name:</h4>
+            <input onChange={newPlace} type="text" placeholder="Restaurant Name" /><br /><br />
+            <h4>Restaurant's Cuisine:</h4>
+            <input onChange={newCuisine} type="text" placeholder="Restaurant's Cuisine" /><br /><br />
+            <h4>Restaurant's Website:</h4>
+            <input onChange={newURL} type="text" placeholder="Restaurant's Website" /><br /><br /><br />
 
             <button onClick={addNewEntry}>Add</button> <br /><br />
+        </div><br /><br />
+            <RestaurantList /><br /><br /><br /><br />
+        <div className="randomButton">
             <button onClick={letsRandomize}>Let's Randomize!</button> <br /><br />
-            <RestaurantList />
+        </div>
         </>
     )
 

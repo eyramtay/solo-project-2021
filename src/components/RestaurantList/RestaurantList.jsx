@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
+import './RestaurantList.css';
+
 function RestaurantList() {
 
     const history = useHistory();
@@ -16,18 +18,29 @@ function RestaurantList() {
     }, []);
 
     return (
-        <section>
-            <h2>All Restaurants</h2>
-            <ul>
-                {restaurantList.map(restaurant => {
-                    return (
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>All Restaurants</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {restaurantList.map(restaurant => {
+                        return (
                         <>
-                        <li>{restaurant.restaurant_name}</li>
+                        <tr>
+                            <td>{restaurant.restaurant_name}</td>
+                            <td><button>Edit</button></td>
+                            <td><button>Delete</button></td>
+                        </tr>
                         </>
-                    )
-                })}
-            </ul>
-        </section>
+                        )
+                    })}
+                </tbody>
+            </table>
+        </div>
     )
 
 }
