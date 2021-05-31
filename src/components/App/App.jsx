@@ -20,7 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
-import AddRestaurant from '../AddRestaurant/AddRestaurant';
+import AddRestaurantForm from '../AddRestaurantForm/AddRestaurantForm';
 import RandomizePage from '../RandomizePage/RandomizePage';
 
 import './App.css';
@@ -110,7 +110,7 @@ function App() {
           exact path="/addRestaurant"
           // authRedirect="/user"
           >
-            <AddRestaurant />
+            <AddRestaurantForm />
           </ProtectedRoute>
 
           <ProtectedRoute

@@ -6,7 +6,7 @@ import RestaurantList from '../RestaurantList/RestaurantList';
 
 import './AddRestaurant.css';
 
-function AddRestaurant() {
+function AddRestaurantForm() {
 
     const user = useSelector((store) => store.user);
 
@@ -83,4 +83,4 @@ useEffect(() => {
 
 }
 
-export default AddRestaurant;
+export default AddRestaurantForm;
