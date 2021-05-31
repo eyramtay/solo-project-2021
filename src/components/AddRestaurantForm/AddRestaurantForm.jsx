@@ -106,6 +106,7 @@ useEffect(() => {
                 /><br /><br /><br />
 
             <div>
+                {/* "Cancel" button routes user to Restaurant List page */}
                 <button onClick={() => history.push('/')}>Cancel</button>
                     &nbsp;&nbsp;
                 <button type="submit">Add</button> <br /><br />
