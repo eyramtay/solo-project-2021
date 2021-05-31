@@ -1,0 +1,13 @@
+table{
+    margin: 0 auto;
+    border: 1px solid black;
+    width: 300px;
+}
+
+table th{
+    border: 1px solid black;
+}
+
+table tbody{
+    text-align: left;
+}

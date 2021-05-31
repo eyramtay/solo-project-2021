@@ -1,11 +1,19 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
+import {useHistory} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
   const user = useSelector((store) => store.user);
+  const history = useHistory()
+
+  function moveToAddPage() {
+    history.push('/addRestaurant')
+        console.log('Going to the addRestaurant page...');
+  }
+
   return (
     <>
     <div className="container">
@@ -15,14 +23,17 @@ function UserPage() {
     </div>
 
     <div className="container">
-      <p>Brief description of what "Let's Eat!" is about...</p>
+      <h3>Brief description of what "Let's Eat!" is about...</h3>
 
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Error rerum eum commodi aliquid ipsam voluptatem voluptates aspernatur? 
-        Optio officiis ipsa excepturi quas provident autem eveniet! 
-        Perferendis vero illo aliquid cupiditate?</p>
+      <p><i><b>Let’s Eat!</b> (working title) - </i>is an application that allows you to enter in 
+        an array of your favorite restaurants and then from there you're able to 
+        click a button that will randomly select a restaurant & suggest where to eat! 
+      </p><br /><br />
+        
+        <p>It’s always hard to decide. <i>Let’s Eat!</i> is designed to make decision-making on 
+          what to eat a little easier!</p><br /><br />
 
-      <Button>Let's Get Started!</Button>
+      <Button variant="contained" color="primary" onClick={moveToAddPage}>Let's Get Started!</Button>
 
     </div>
     </>
