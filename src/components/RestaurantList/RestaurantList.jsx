@@ -10,10 +10,16 @@ function RestaurantList() {
 
     const history = useHistory();
     const dispatch = useDispatch();
+    // Restaurant list
+    const restaurants = useSelector(store => store.restaurants);
 
-    const restaurantList = useSelector(store => store.restaurantList);
+    const handleDetailView = (id) => {
+        history.push(`details/${id}`)
+        dispatch({ type: 'SET_RESTAURANT_CLICK', payload: id });
+    }
 
     useEffect(() => {
+        // on page load - fetches restaurants from database
         dispatch({ type: 'FETCH_RESTAURANTS' });
     }, []);
 
@@ -27,11 +33,12 @@ function RestaurantList() {
                     </tr>
                 </thead>
                 <tbody>
-                    {restaurantList.map(restaurant => {
+                    {restaurants.map(restaurant => {
                         return (
                         <>
                         <tr>
-                            <td>{restaurant.restaurant_name}</td>
+                            <td onClick={() => handleDetailView(restaurant.id)}>
+                                {restaurant.restaurant_name}</td>
                             <td><button>Edit</button></td>
                             <td><button>Delete</button></td>
                         </tr>
