@@ -20,6 +20,23 @@ router.get('/', (req, res) => {
   
 });
 
+router.get('/:id', (req, res) => {
+  let restaurantId = req.params.id;
+  console.log(`in GET restaurant by ID router. ID is ${restaurantId}`);
+
+  const sqlQuery = 'SELECT * FROM restaurants WHERE id=$1;';
+
+  pool.query(sqlQuery, [restaurantId])
+    .then(result => {
+      console.log(result.rows);
+      res.send(result.rows);
+    })
+    .catch(error => {
+      console.log(`Error making SQL query ${sqlQuery}:`, error);
+      res.sendStatus(500);
+    })
+});
+
 /**
  * POST route template
  */
