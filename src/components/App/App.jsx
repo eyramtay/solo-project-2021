@@ -24,6 +24,8 @@ import AddRestaurantForm from '../AddRestaurantForm/AddRestaurantForm';
 import RandomizePage from '../RandomizePage/RandomizePage';
 
 import './App.css';
+import RestaurantDetail from '../RestaurantDetail/RestaurantDetail';
+import RestaurantList from '../RestaurantList/RestaurantList';
 
 function App() {
   const dispatch = useDispatch();
@@ -111,6 +113,21 @@ function App() {
           // authRedirect="/user"
           >
             <AddRestaurantForm />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+
+          exact path="/restaurantList"
+          >
+            <RestaurantList />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+
+          exact
+          path="/details/:id"
+          >
+            <RestaurantDetail />
           </ProtectedRoute>
 
           <ProtectedRoute
