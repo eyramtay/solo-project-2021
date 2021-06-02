@@ -17,3 +17,10 @@ CREATE TABLE "restaurants" (
     "restaurant_bio" TEXT NOT NULL,
     "users_id" INT REFERENCES "user" NOT NULL
 );
+
+-- starter Restaurants
+INSERT INTO "restaurants" ("restaurant_name", "cuisine", "restaurant_url", "restaurant_bio")
+VALUES
+('Boludo', 'Argentinian', 'boludo.com', 'A taste of Buenos Aires in Minneapolis.' ),
+('Chipotle', 'Mexican', 'chipotle.com', 'Chipotle, is an American chain of fast casual restaurants in the United States, United Kingdom, Canada, Germany, and France, specializing in tacos and Mission burritos that are made to order in front of the customer.'),
+('Five Guys', 'American', 'fiveguys.com', 'Five Guys is an American fast casual restaurant chain focused on hamburgers, hot dogs, and French fries.');

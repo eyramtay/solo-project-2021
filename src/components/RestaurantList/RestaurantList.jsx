@@ -11,7 +11,7 @@ function RestaurantList() {
     const history = useHistory();
     const dispatch = useDispatch();
     // Restaurant list
-    const restaurants = useSelector(store => store.restaurants);
+    const restaurants = useSelector(store => store.restaurantList);
 
     const handleDetailView = (id) => {
         history.push(`details/${id}`)

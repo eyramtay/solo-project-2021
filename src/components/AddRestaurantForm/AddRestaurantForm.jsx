@@ -12,7 +12,7 @@ function AddRestaurantForm() {
 
 // States for input
 const [restaurantName, setRestaurantName] = useState('');
-const [cuisine, setCuisine] = useState('');
+const [cuisineType, setCuisineType] = useState('');
 const [foodURL, setFoodURL] = useState('');
 const [restaurantBio, setRestaurantBio] = useState('');
 
@@ -22,22 +22,23 @@ const dispatch = useDispatch();
 
 
 // Object handling the data from the inputs
-let newRestaurant = {
-    restaurant_name: restaurantName,
-    cuisine: cuisine,
-    restaurant_url: foodURL,
-    restaurant_bio: restaurant_bio,
-}
+// let newRestaurant = {
+//     restaurant_name: restaurantName,
+//     cuisine: cuisine,
+//     restaurant_url: foodURL,
+//     restaurant_bio: restaurant_bio,
+// }
 
 // Adds new restaurant to the database
 function handleSubmit(event) {
     event.preventDefault();
     console.log(newRestaurant);
-    dispatch({ type: 'POST_RESTAURANT', payload: newRestaurant })
+    dispatch({ type: 'POST_RESTAURANT', restaurant_name: restaurantName,
+    cuisine: cuisineType, restaurant_url: foodURL, restaurant_bio: restaurantBio, })
     
     // After dispatching - clear state of inputs
     setRestaurantName('');
-    setCuisine('');
+    setCuisineType('');
     setFoodURL('');
     setRestaurantBio('');
 }
@@ -58,7 +59,7 @@ useEffect(() => {
     }
 
     const newCuisine = (event) => {
-        setCuisine(event.target.value);
+        setCuisineType(event.target.value);
     }
 
     const newURL = (event) => {
@@ -86,7 +87,7 @@ useEffect(() => {
 
             <h4>Restaurant's Cuisine:</h4>
                 <input onChange={newCuisine} 
-                value={cuisine}
+                value={cuisineType}
                 type="text" 
                 placeholder="Restaurant's Cuisine" 
                 /><br /><br />
