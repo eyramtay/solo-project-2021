@@ -14,7 +14,7 @@ function RestaurantDetail() {
     const restaurantClickedDetail = useSelector(store => store.restaurantClicked);
 
     const handleBackButton = () => {
-        history.push('/');
+        history.push('/restaurantList');
         
         // Resets state of restaurant clicked
         dispatch({ type: 'RESET_CLICK' });

@@ -32,7 +32,7 @@ const dispatch = useDispatch();
 // Adds new restaurant to the database
 function handleSubmit(event) {
     event.preventDefault();
-    console.log(newRestaurant);
+    console.log('Added new restaurant');
     dispatch({ type: 'POST_RESTAURANT', restaurant_name: restaurantName,
     cuisine: cuisineType, restaurant_url: foodURL, restaurant_bio: restaurantBio, })
     
@@ -55,7 +55,7 @@ useEffect(() => {
     }
 
     const newPlace = (event) => {
-        setRestaurant(event.target.value);
+        setRestaurantName(event.target.value);
     }
 
     const newCuisine = (event) => {
@@ -100,7 +100,7 @@ useEffect(() => {
                 /><br /><br /><br />
 
             <h4>Description of Restaurant:</h4>
-                <input onChange={newBio}
+                <textarea onChange={newBio}
                 value={restaurantBio}
                 type="text"
                 placeholder="Restaurant Bio"
