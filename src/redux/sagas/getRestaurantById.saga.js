@@ -14,7 +14,7 @@ function* getRestaurantById(action) {
 }
 
 // function* getRestaurantById() {
-//     yield takeLatest('ADD_RESTAURANT', addNewRestaurants);
+//     yield takeLatest('ADD_RESTAURANT', addRestaurant);
 // }
 
 export default getRestaurantById;

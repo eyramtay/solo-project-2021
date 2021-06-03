@@ -28,11 +28,16 @@ const history = useHistory();
 //     restaurant_url: foodURL,
 //     restaurant_bio: restaurant_bio,
 // }
+useEffect(() => {
+    // Hook to grab restaurants
+    dispatch({ type: 'FETCH_RESTAURANTS' });
+}, []);
 
 // Adds new restaurant to the database
 function handleSubmit(event) {
     event.preventDefault();
     console.log('Added new restaurant');
+    
     dispatch({ type: 'POST_RESTAURANT', payload: {restaurant_name: restaurantName,
     cuisine: cuisineType, restaurant_url: foodURL, restaurant_bio: restaurantBio} })
     
@@ -43,10 +48,6 @@ function handleSubmit(event) {
     setRestaurantBio('');
 }
 
-useEffect(() => {
-    // Hook to grab restaurants
-    dispatch({ type: 'FETCH_RESTAURANTS' });
-}, []);
 
 
     function letsRandomize() {

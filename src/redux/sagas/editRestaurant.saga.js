@@ -1,3 +1,4 @@
+import { takeLatest } from '@redux-saga/core/effects';
 import axios from 'axios';
 
 function* editRestaurant(action) {
@@ -10,4 +11,8 @@ function* editRestaurant(action) {
     }
 }
 
-export default editRestaurant;
+function* editRestaurantSaga() {
+    yield takeLatest('EDIT_RESTAURANT', editRestaurant);
+}
+
+export default editRestaurantSaga;

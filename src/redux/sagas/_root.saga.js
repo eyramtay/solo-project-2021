@@ -1,11 +1,11 @@
-import { all } from 'redux-saga/effects';
+import { all, takeEvery } from 'redux-saga/effects';
 // import { takeEvery } from 'redux-saga/effects';
 
 import loginSaga from './login.saga';
 import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
-import fetchAllRestaurants from './fetchAllRestaurants.saga';
-import postRestaurant from './postRestaurant.saga';
+import fetchAllRestaurantsSaga from './fetchAllRestaurants.saga';
+import postRestaurantSaga from './postRestaurant.saga';
 import getRestaurantById from './getRestaurantById.saga';
 import editRestaurant from './editRestaurant.saga';
 
@@ -15,6 +15,7 @@ import editRestaurant from './editRestaurant.saga';
 //   yield takeEvery('SET_RESTAURANT_CLICK', getRestaurantById);
 //   yield takeEvery('POST_RESTAURANT', postRestaurant);
 //   yield takeEvery('EDIT_RESTAURANT', editRestaurant);
+//   yield takeEvery('')
 // }
 
 
@@ -32,8 +33,8 @@ export default function* rootSaga() {
     registrationSaga(),
     userSaga(),
     getRestaurantById(),
-    fetchAllRestaurants(),
-    postRestaurant(),
+    fetchAllRestaurantsSaga(),
+    postRestaurantSaga(),
     editRestaurant(),
   ]);
 }

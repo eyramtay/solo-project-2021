@@ -1,4 +1,4 @@
-import { put } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* fetchAllRestaurants() {
@@ -13,4 +13,8 @@ function* fetchAllRestaurants() {
     }
 }
 
-export default fetchAllRestaurants;
+function* fetchAllRestaurantsSaga() {
+    yield takeLatest('FETCH_RESTAURANTS', fetchAllRestaurants)
+}
+
+export default fetchAllRestaurantsSaga;
