@@ -66,9 +66,9 @@ useEffect(() => {
     //     setFoodURL(event.target.value);
     // }
 
-    const newBio = (event) => {
-        setRestaurantBio(event.target.value);
-    }
+    // const newBio = (event) => {
+    //     setRestaurantBio(event.target.value);
+    // }
 
     return (
         <>
