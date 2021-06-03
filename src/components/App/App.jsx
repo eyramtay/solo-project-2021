@@ -124,7 +124,7 @@ function App() {
 
           <ProtectedRoute
 
-          exact
+          
           path="/details/:id"
           >
             <RestaurantDetail />

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
@@ -14,6 +14,7 @@ function RestaurantDetail() {
     const restaurantClickedDetail = useSelector(store => store.restaurantClicked);
 
     const handleBackButton = () => {
+        // on click - brings user back to the restaurantList page view
         history.push('/restaurantList');
         
         // Resets state of restaurant clicked
@@ -50,7 +51,7 @@ function RestaurantDetail() {
                 {/* Back button */}
                 <button onClick={handleBackButton}>Back</button> <br />
                 {/* Edit button */}
-                <button onClick={handleEditButton}>Edit</button>
+                <button onClick={() => handleEditButton(restaurant)}>Edit Restaurant</button>
             </div>
         })}
     </div>
