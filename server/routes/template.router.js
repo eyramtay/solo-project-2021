@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
   // GET route code here
-  const queryText = `SELECT restaurant_name FROM "restaurants";`;
+  const queryText = `SELECT * FROM restaurants ORDER BY "restaurant_name";`;
 
   pool.query(queryText)
     .then(result => {
@@ -71,12 +71,13 @@ router.post('/', (req, res) => {
   INSERT INTO "restaurants" ("restaurant_name", "cuisine", "restaurant_url", "restaurant_bio")
   VALUES ($1, $2, $3, $4)
   RETURNING "id"
-  ;`
+  ;`;
 
   pool.query(addRestaurantQuery, [req.body.restaurant_name, req.body.cuisine, 
     req.body.restaurant_url, req.body.restaurant_bio])
     .then(result => {
-      console.log('Newly added restaurant ID:'); //result.rows[0].id); // ID is here
+      console.log('Newly added restaurant ID:', result.rows[0].id); //result.rows[0].id); // ID is here
+      
       res.sendStatus(201);
     })
     .catch((error) => {

@@ -3,7 +3,6 @@ import { all } from 'redux-saga/effects';
 
 import loginSaga from './login.saga';
 import registrationSaga from './registration.saga';
-import getRestaurantById from './getRestaurantById.saga';
 import userSaga from './user.saga';
 import fetchAllRestaurants from './fetchAllRestaurants.saga';
 import postRestaurant from './postRestaurant.saga';

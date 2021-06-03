@@ -16,8 +16,8 @@ const [cuisineType, setCuisineType] = useState('');
 const [foodURL, setFoodURL] = useState('');
 const [restaurantBio, setRestaurantBio] = useState('');
 
-const history = useHistory();
 const dispatch = useDispatch();
+const history = useHistory();
 
 
 
@@ -33,8 +33,8 @@ const dispatch = useDispatch();
 function handleSubmit(event) {
     event.preventDefault();
     console.log('Added new restaurant');
-    dispatch({ type: 'POST_RESTAURANT', restaurant_name: restaurantName,
-    cuisine: cuisineType, restaurant_url: foodURL, restaurant_bio: restaurantBio, })
+    dispatch({ type: 'POST_RESTAURANT', payload: {restaurant_name: restaurantName,
+    cuisine: cuisineType, restaurant_url: foodURL, restaurant_bio: restaurantBio} })
     
     // After dispatching - clear state of inputs
     setRestaurantName('');
@@ -54,17 +54,17 @@ useEffect(() => {
         console.log('Going to the randomizer page...');
     }
 
-    const newPlace = (event) => {
-        setRestaurantName(event.target.value);
-    }
+    // const newPlace = (event) => {
+    //     setRestaurantName(event.target.value);
+    // }
 
-    const newCuisine = (event) => {
-        setCuisineType(event.target.value);
-    }
+    // const newCuisine = (event) => {
+    //     setCuisineType(event.target.value);
+    // }
 
-    const newURL = (event) => {
-        setFoodURL(event.target.value);
-    }
+    // const newURL = (event) => {
+    //     setFoodURL(event.target.value);
+    // }
 
     const newBio = (event) => {
         setRestaurantBio(event.target.value);
@@ -79,28 +79,28 @@ useEffect(() => {
             <h4>Restaurant Name:</h4>
             {/* form for submitting newly added restaurants */}
             <form onSubmit={handleSubmit}>
-                <input onChange={newPlace} 
+                <input onChange={(event) => setRestaurantName(event.target.value)} 
                     value={restaurantName} 
                     type="text" 
                     placeholder="Restaurant Name" 
                     /><br /><br />
 
             <h4>Restaurant's Cuisine:</h4>
-                <input onChange={newCuisine} 
+                <input onChange={(event) => setCuisineType(event.target.value)} 
                 value={cuisineType}
                 type="text" 
                 placeholder="Restaurant's Cuisine" 
                 /><br /><br />
 
             <h4>Restaurant's Website:</h4>
-                <input onChange={newURL} 
+                <input onChange={(event) => setFoodURL(event.target.value)} 
                 value={foodURL}
                 type="text" 
                 placeholder="Restaurant's Website" 
                 /><br /><br /><br />
 
             <h4>Description of Restaurant:</h4>
-                <textarea onChange={newBio}
+                <textarea onChange={(event) => setRestaurantBio(event.target.value)}
                 value={restaurantBio}
                 type="text"
                 placeholder="Restaurant Bio"
@@ -108,9 +108,9 @@ useEffect(() => {
 
             <div>
                 {/* "Cancel" button routes user to Restaurant List page */}
-                <button onClick={() => history.push('/')}>Cancel</button>
+                <button onClick={() => history.push('/restaurantList')}>Cancel</button>
                     &nbsp;&nbsp;
-                <button type="submit">Add</button> <br /><br />
+                <button type="submit" onClick={handleSubmit}>Add</button> <br /><br />
             </div>
             </form>
         </div><br /><br />
