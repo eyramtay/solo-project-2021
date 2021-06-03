@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { put, takeLatest } from 'redux-saga/effects';
+// import { put, takeLatest } from 'redux-saga/effects';
+import { put } from 'redux-saga/effects';
 
 function* getRestaurantById(action) {
     try {
