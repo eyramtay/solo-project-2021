@@ -14,8 +14,8 @@ function RestaurantList() {
     const restaurantList = useSelector(store => store.restaurantList);
 
     const handleDetailView = (id) => {
-        history.push(`details/${id}`)
         dispatch({ type: 'SET_RESTAURANT_CLICK', payload: id });
+        history.push(`details/${id}`)
     }
 
     useEffect(() => {

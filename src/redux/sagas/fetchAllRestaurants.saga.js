@@ -6,7 +6,7 @@ function* fetchAllRestaurants() {
     try {
         const clickedRestaurant = yield axios.get('/api/restaurant');
         console.log('In fetchAllRestaurants - response from GET request', clickedRestaurant.data);
-        yield put({ type: 'SET_RESTAURANT_LIST', payload: clickedRestaurant.data });
+        yield put({ type: 'SET_RESTAURANTS', payload: clickedRestaurant.data });
     
     } catch {
         console.log('Error GETTING restaurants...');

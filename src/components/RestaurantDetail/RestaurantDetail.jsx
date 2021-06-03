@@ -47,7 +47,7 @@ function RestaurantDetail() {
                     <h2>{restaurant.restaurant_name}</h2>
                     <h4>{restaurant.cuisine}</h4>
                     <p>{restaurant.restaurant_bio}</p>
-                )
+                
                 {/* Back button */}
                 <button onClick={handleBackButton}>Back</button> <br />
                 {/* Edit button */}

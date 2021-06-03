@@ -7,7 +7,7 @@ const restaurantList = (state = [], action) => {
             return state;
     }
 
-    // if (action.type === 'SET_RESTAURANT_LIST') {
+    // if (action.type === 'SET_RESTAURANTS') {
     //     // The action payload is a new array from the server
     //     // It has ALL the information in it - no need to spread
     //     // & add to previous state

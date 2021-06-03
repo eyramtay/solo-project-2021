@@ -26,6 +26,7 @@ import RandomizePage from '../RandomizePage/RandomizePage';
 import './App.css';
 import RestaurantDetail from '../RestaurantDetail/RestaurantDetail';
 import RestaurantList from '../RestaurantList/RestaurantList';
+import EditPage from '../EditPage/EditPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -128,6 +129,13 @@ function App() {
           path="/details/:id"
           >
             <RestaurantDetail />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+
+          path="/editrestaurant/:id"
+          >
+            <EditPage />
           </ProtectedRoute>
 
           <ProtectedRoute
