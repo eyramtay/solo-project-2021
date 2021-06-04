@@ -17,6 +17,7 @@ import Grid from '@material-ui/core/Grid';
 // import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+// import classes from '*.module.css';
 
 function Copyright() {
   return (
@@ -62,7 +63,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 function RegisterForm() {
+  const classes = useStyles();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const errors = useSelector((store) => store.errors);
@@ -81,7 +84,20 @@ function RegisterForm() {
   }; // end registerUser
 
   return (
-    <form className="formPanel" onSubmit={registerUser}>
+
+    <Grid container component="main" className={classes.root}>
+      <CssBaseline />
+      <Grid item xs={false} sm={4} md={7} className={classes.image} />
+      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            {/* <LockOutlinedIcon /> */}
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign in
+          </Typography>
+
+    <form className={classes.form} noValidate onSubmit={registerUser}>
       <h2>Register User</h2>
       {errors.registrationMessage && (
         <h3 className="alert" role="alert">
@@ -89,33 +105,82 @@ function RegisterForm() {
         </h3>
       )}
       <div>
-        <label htmlFor="username">
+        {/* <label htmlFor="username"> */}
           Username:
-          <input
-            type="text"
-            name="username"
-            value={username}
+          <TextField
+            variant="outlined"
+            margin="normal"
             required
+            fullWidth
+            id="email"
+            label="Username"
+            name="username"
+            autoComplete="username"
+            autoFocus
+
+            type="text"
+            // name="username"
+            value={username}
+            // required
             onChange={(event) => setUsername(event.target.value)}
           />
-        </label>
+        {/* </label> */}
       </div>
       <div>
-        <label htmlFor="password">
+        {/* <label htmlFor="password"> */}
           Password:
-          <input
-            type="password"
-            name="password"
-            value={password}
+          <TextField
+            variant="outlined"
+            margin="normal"
             required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+
+            type="password"
+            // name="password"
+            value={password}
+            // required
             onChange={(event) => setPassword(event.target.value)}
           />
-        </label>
+        {/* </label> */}
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
+      <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Sign In
+            </Button>
+
+        {/* <input className="btn" type="submit" name="submit" value="Register" /> */}
+
+        <Grid container>
+              <Grid item xs>
+                <Link href="#" variant="body2">
+                  Forgot password?
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link href="#" variant="body2">
+                  {"Don't have an account? Sign Up"}
+                </Link>
+              </Grid>
+            </Grid>
+            <Box mt={5}>
+              <Copyright />
+            </Box>
       </div>
     </form>
+    </div>
+      </Grid>
+    </Grid>
   );
 }
 
