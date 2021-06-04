@@ -6,8 +6,8 @@ import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
 import fetchAllRestaurantsSaga from './fetchAllRestaurants.saga';
 import postRestaurantSaga from './postRestaurant.saga';
-import getRestaurantById from './getRestaurantById.saga';
-import editRestaurant from './editRestaurant.saga';
+import getRestaurantByIdSaga from './getRestaurantById.saga';
+import editRestaurantSaga from './editRestaurant.saga';
 
 
 // function* rootSaga() {
@@ -32,9 +32,9 @@ export default function* rootSaga() {
     loginSaga(), // login saga is now registered
     registrationSaga(),
     userSaga(),
-    getRestaurantById(),
+    getRestaurantByIdSaga(),
     fetchAllRestaurantsSaga(),
     postRestaurantSaga(),
-    editRestaurant(),
+    editRestaurantSaga(),
   ]);
 }
