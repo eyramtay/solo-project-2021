@@ -20,10 +20,13 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 
-import AddRestaurant from '../AddRestaurant/AddRestaurant';
+import AddRestaurantForm from '../AddRestaurantForm/AddRestaurantForm';
 import RandomizePage from '../RandomizePage/RandomizePage';
 
 import './App.css';
+import RestaurantDetail from '../RestaurantDetail/RestaurantDetail';
+import RestaurantList from '../RestaurantList/RestaurantList';
+import EditPage from '../EditPage/EditPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +34,7 @@ function App() {
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
+
 
   return (
     <Router>
@@ -110,7 +114,29 @@ function App() {
           exact path="/addRestaurant"
           // authRedirect="/user"
           >
-            <AddRestaurant />
+            <AddRestaurantForm />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+
+          exact path="/restaurantList"
+          >
+            <RestaurantList />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+
+          
+          path="/details/:id"
+          >
+            <RestaurantDetail />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+
+          path="/editrestaurant/:id"
+          >
+            <EditPage />
           </ProtectedRoute>
 
           <ProtectedRoute
