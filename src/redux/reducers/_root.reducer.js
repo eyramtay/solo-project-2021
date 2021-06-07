@@ -5,6 +5,8 @@ import restaurantList from './restaurantList.reducer';
 import restaurantClicked from './restaurantClicked.reducer';
 import restaurantEdit from './restaurantEdit.reducer';
 
+import randomTaskReducer from './randomTask.reducer';
+
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -17,6 +19,7 @@ const rootReducer = combineReducers({
   restaurantList,
   restaurantClicked,
   restaurantEdit,
+  randomTaskReducer,
 });
 
 export default rootReducer;

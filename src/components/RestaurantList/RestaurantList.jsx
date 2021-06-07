@@ -6,7 +6,14 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import './RestaurantList.css';
 
+// -- MATERIAL UI --
+
+
+
 function RestaurantList() {
+
+    // const list = new MDCList(document.querySelector('.mdc-list'));
+    // const listItemRipples = list.listElements.map((listItemEl) => new MDCRipple(listItemEl));
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -29,13 +36,19 @@ function RestaurantList() {
             {restaurantList.map(restaurant => {
             return (
             <>
-            <ul>
-                <li key={restaurant.id}>
+            <div id="menu-outer">
+                <div class="table">
+
+            <ul id="horizontal-list">
+                <li
+                key={restaurant.id}>
                     {restaurant.restaurant_name}&nbsp;&nbsp;
                     <button onClick={() => handleDetailView(restaurant.id)}>View</button>
                 </li>
                 
             </ul>
+                </div>
+            </div>
             </>
             )
             })}

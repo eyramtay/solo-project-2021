@@ -6,7 +6,23 @@ import RestaurantList from '../RestaurantList/RestaurantList';
 
 import './AddRestaurant.css';
 
+//  MATERIAL UI
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+
+
 function AddRestaurantForm() {
+
+    const useStyles = makeStyles((theme) => ({
+        root: {
+          '& > *': {
+            margin: theme.spacing(1),
+            width: '25ch',
+          },
+        },
+      }));
+
+      const classes = useStyles();
 
     const user = useSelector((store) => store.user);
 
@@ -77,42 +93,57 @@ function handleSubmit(event) {
             <h2>Welcome, {user.username}!</h2><br />
             <p>What are you craving? <br /><br />Down below, enter in as many restaurants as you wish & hit
                  the <i>Let's Randomize</i> button once your list is done!</p><br />
-            <h4>Restaurant Name:</h4>
+            <h4>Please fill out:</h4>
             {/* form for submitting newly added restaurants */}
-            <form onSubmit={handleSubmit}>
-                <input onChange={(event) => setRestaurantName(event.target.value)} 
+            <form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit}>
+                <TextField 
+                    id="filled-basic" label="Restaurant Name" variant="filled"
+                    onChange={(event) => setRestaurantName(event.target.value)} 
                     value={restaurantName} 
                     type="text" 
-                    placeholder="Restaurant Name" 
+                    // placeholder="Restaurant Name" 
                     /><br /><br />
 
-            <h4>Restaurant's Cuisine:</h4>
-                <input onChange={(event) => setCuisineType(event.target.value)} 
+            {/* <h4>Restaurant's Cuisine:</h4> */}
+                <TextField
+                id="filled-basic" label="Restaurant Cuisine" variant="filled"
+                onChange={(event) => setCuisineType(event.target.value)} 
                 value={cuisineType}
                 type="text" 
-                placeholder="Restaurant's Cuisine" 
+                // placeholder="Restaurant's Cuisine" 
                 /><br /><br />
 
-            <h4>Restaurant's Website:</h4>
-                <input onChange={(event) => setFoodURL(event.target.value)} 
-                value={foodURL}
-                type="text" 
-                placeholder="Restaurant's Website" 
+            {/* <h4>Restaurant's Website:</h4> */}
+                <TextField
+                    id="filled-basic" label="Restaurant URL" variant="filled"
+                    onChange={(event) => setFoodURL(event.target.value)} 
+                    value={foodURL}
+                    type="text" 
+                    // placeholder="Restaurant's Website" 
                 /><br /><br /><br />
 
-            <h4>Description of Restaurant:</h4>
-                <textarea onChange={(event) => setRestaurantBio(event.target.value)}
-                value={restaurantBio}
-                type="text"
-                placeholder="Restaurant Bio"
+            {/* <h4>Description of Restaurant:</h4> */}
+                <TextField
+                    id="filled-multiline-static"
+                    label="A brief bio on the restaurant..."
+                    multiline
+                    rows={5}
+                    defaultValue="A brief bio on the restaurant..."
+                    variant="filled"
+                    onChange={(event) => setRestaurantBio(event.target.value)}
+                    value={restaurantBio}
+                    type="text"
+                    // placeholder="Restaurant Bio"
                 /><br /><br /><br />
 
-            <div>
+            <div class="container">
+                <div class="center"> 
                 {/* "Cancel" button routes user to Restaurant List page */}
                 <button onClick={() => history.push('/restaurantList')}>Cancel</button>
                     &nbsp;&nbsp;
                 <button type="submit" onClick={handleSubmit}>Add</button> <br /><br />
-            </div>
+                </div>
+                </div>
             </form>
         </div><br /><br />
             <RestaurantList /><br /><br /><br /><br />

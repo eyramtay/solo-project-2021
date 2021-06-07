@@ -11,3 +11,29 @@ table th{
 table tbody{
     text-align: left;
 }
+
+/* #menu-outer {
+	height: 84px;
+	background: url(images/bar-bg.jpg) repeat-x; 
+} */
+
+h2 {
+    text-align: center;
+}
+
+.table {
+	display: table;   /* Allow the centering to work */
+	margin: 0 auto;
+    align-items: center;
+}
+
+ul#horizontal-list {
+	min-width: 696px;
+	list-style: none;
+	padding-top: 20px;
+    text-align: center;
+	}
+	ul#horizontal-list li {
+		display: inline;
+        text-align: center;
+	}
