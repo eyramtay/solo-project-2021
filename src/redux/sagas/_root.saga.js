@@ -9,6 +9,8 @@ import postRestaurantSaga from './postRestaurant.saga';
 import getRestaurantByIdSaga from './getRestaurantById.saga';
 import editRestaurantSaga from './editRestaurant.saga';
 
+import randomTaskSaga from './randomRestaurant.saga';
+
 
 // function* rootSaga() {
 //   yield takeEvery('FETCH_RESTAURANTS', fetchAllRestaurants);
@@ -36,5 +38,6 @@ export default function* rootSaga() {
     fetchAllRestaurantsSaga(),
     postRestaurantSaga(),
     editRestaurantSaga(),
+    randomTaskSaga(),
   ]);
 }

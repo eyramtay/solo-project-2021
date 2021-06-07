@@ -37,6 +37,24 @@ router.get('/:id', (req, res) => {
     })
 });
 
+router.get('/', (req, res) => {
+  let sqlText = `SELECT * FROM restaurants where id >= (
+    SELECT random()*(max(id)-min(id))+min(id) FROM restaurants
+  )
+  ORDER BY id
+  LIMIT 1;`;
+
+  pool.query(sqlText)
+  .then((result) => {
+      console.log(sqlText);
+      res.send(result.rows[0]);
+  })
+  .catch((err) => {
+      console.log('ERROR fetching random', err);
+      res.sendStatus(500)
+  })
+})
+
 // PUT / edit/update route
 router.put('/:id', (req, res) => {
   const id = req.params.id;

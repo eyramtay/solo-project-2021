@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom'; 
 
 
 // ----- MATERIAL UI -----
@@ -9,7 +10,7 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+// import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
@@ -22,9 +23,9 @@ import { makeStyles } from '@material-ui/core/styles';
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
+      {' © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Prime Digital Academy
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -37,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
   },
   image: {
-    backgroundImage: 'url(https://source.unsplash.com/random)',
+    backgroundImage: 'url(https://images.unsplash.com/photo-1617023504096-78ae5e67d52d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=666&q=80)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
@@ -70,6 +71,11 @@ function RegisterForm() {
   const [password, setPassword] = useState('');
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
+
+  const history = useHistory();
+  const onLogin = (event) => {
+    history.push('/login');
+  };
 
   const registerUser = (event) => {
     event.preventDefault();
@@ -106,7 +112,7 @@ function RegisterForm() {
       )}
       <div>
         {/* <label htmlFor="username"> */}
-          Username:
+          {/* Username: */}
           <TextField
             variant="outlined"
             margin="normal"
@@ -128,7 +134,7 @@ function RegisterForm() {
       </div>
       <div>
         {/* <label htmlFor="password"> */}
-          Password:
+          {/* Password: */}
           <TextField
             variant="outlined"
             margin="normal"
@@ -168,8 +174,8 @@ function RegisterForm() {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                <Link onClick={onLogin} variant="body2">
+                  {"Already a member? Sign In Here"}
                 </Link>
               </Grid>
             </Grid>

@@ -18,12 +18,12 @@ function UserPage() {
     <>
     <div className="container">
       <h2>Welcome, {user.username}!</h2>
-      <p>Your ID is: {user.id}</p>
-      <LogOutButton className="btn" />
+      {/* <p>Your ID is: {user.id}</p> */}
+      {/* <LogOutButton className="btn" /> */}
     </div>
 
     <div className="container">
-      <h3>Brief description of what "Let's Eat!" is about...</h3>
+      <h3>What is "Let's Eat!" is about...</h3><br />
 
       <p><i><b>Let’s Eat!</b> (working title) - </i>is an application that allows you to enter in 
         an array of your favorite restaurants and then from there you're able to 

@@ -69,9 +69,9 @@ function LandingPage() {
   const [heading, setHeading] = useState('Welcome');
   const history = useHistory();
 
-  const onLogin = (event) => {
-    history.push('/login');
-  };
+  // const onLogin = (event) => {
+  //   history.push('/login');
+  // };
 
   return (
     <div className="container">
@@ -115,10 +115,10 @@ function LandingPage() {
           <RegisterForm />
 
           <center>
-            <h4>Already a Member?</h4>
-            <button className="btn btn_sizeSm" onClick={onLogin}>
+            {/* <h4>Already a Member?</h4> */}
+            {/* <button className="btn btn_sizeSm" onClick={onLogin}>
               Login
-            </button>
+            </button> */}
           </center>
         {/* </div> */}
       </div>
